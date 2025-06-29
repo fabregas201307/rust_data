@@ -1,0 +1,5 @@
+[dependencies]
+mysql = { version = "23.0.1", features = ["rustls"] }
+diesel = { version = "2.1.0", features = ["mysql"] }
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "mysql"] }
+oracle = { version = "0.5.7" }
