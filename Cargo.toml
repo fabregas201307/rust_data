@@ -1,5 +1,25 @@
+[package]
+name = "rust_abdata"
+version = "0.1.0"
+edition = "2021"
+
 [dependencies]
-mysql = { version = "23.0.1", features = ["rustls"] }
+# MySQL client
+mysql = { version = "23.0.1", default-features = false, features = ["native-tls"] }
+
+# Diesel ORM
 diesel = { version = "2.1.0", features = ["mysql"] }
+
+# SQLx
 sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "mysql"] }
+
+# Oracle client
 oracle = { version = "0.5.7" }
+
+# SQL Server dependencies
+tiberius = { version = "0.12", features = ["sql-browser-tokio", "tds73"] }
+tokio = { version = "1", features = ["full", "rt-multi-thread", "macros"] }
+tokio-util = { version = "0.7", features = ["compat"] }
+
+# Ensure flate2 has miniz oxide backend
+flate2 = { version = "1.0", features = ["miniz-oxide"] }
